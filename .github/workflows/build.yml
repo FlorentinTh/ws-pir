@@ -1,0 +1,43 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    env:
+      CREDENTIALS: ${{ secrets.CREDENTIALS }}
+      TOKEN: ${{ secrets.TOKEN }}
+
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+        node-version:
+          - 16
+        architecture:
+          - x64
+
+    name: Using Node ${{ matrix.node-version }} on ${{ matrix.os }} (${{ matrix.architecture }})
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup node ${{ matrix.node-version }} on ${{ matrix.os }} (${{ matrix.architecture }})
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          architecture: ${{ matrix.architecture }}
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run test

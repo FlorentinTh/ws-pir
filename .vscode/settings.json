@@ -1,0 +1,23 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 10000,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+      "javascript"
+    ],
+    "files.encoding": "utf8",
+    "search.exclude": {
+      "**/node_modules": true,
+    },
+    "[javascript]": {
+      "editor.formatOnSave": true,
+      "editor.formatOnPaste": true
+    },
+    "[markdown]": {
+      "editor.formatOnSave": true,
+      "editor.renderWhitespace": "all",
+      "editor.acceptSuggestionOnEnter": "off"
+    },
+}

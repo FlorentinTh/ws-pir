@@ -1,0 +1,51 @@
+{
+  "name": "ws-pir",
+  "version": "0.0.1",
+  "description": "",
+  "main": "bin/ws-pir.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint ./src ./bin --ext .js,.json",
+    "test": "cross-env NODE_ENV=test node ./bin/ws-pir.js",
+    "start": "node ./bin/ws-pir.js",
+    "commit": "git-cz",
+    "release": "standard-version",
+    "publish": "git push --follow-tags"
+  },
+  "author": "FlorentinTh",
+  "license": "MIT",
+  "bin": {
+    "ws-pir": "./bin/ws-pir.js"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.6.2",
+    "standard-version": "^9.3.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "joi": "^17.6.0",
+    "mqtt": "^4.3.7",
+    "ws": "^8.5.0"
+  },
+  "overrides": {
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "minimist": "^1.2.6"
+  }
+}
