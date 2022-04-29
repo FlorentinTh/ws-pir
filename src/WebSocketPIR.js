@@ -41,6 +41,10 @@ class WebSocketPIR {
     client.on('connect', () => {
       const msg = reconnection ? `\tMQTT client reconnected` : `MQTT client connected`;
       console.log(msg);
+
+      if (process.env.NODE_ENV === 'test') {
+        process.exit(0);
+      }
     });
 
     client.on('error', error => {
@@ -92,10 +96,6 @@ class WebSocketPIR {
     console.log(`WebSocket server created`);
 
     let mqttClient = this.#mqttConnectAndSubscribe(false);
-
-    if (process.env.NODE_ENV === 'test') {
-      process.exit(0);
-    }
 
     webSocketServer.on('connection', async (webSocket, request) => {
       if (!mqttClient.connected) {
