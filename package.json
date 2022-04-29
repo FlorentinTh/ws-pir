@@ -38,6 +38,7 @@
     "standard-version": "^9.3.2"
   },
   "dependencies": {
+    "dayjs": "^1.11.1",
     "dotenv": "^16.0.0",
     "joi": "^17.6.0",
     "mqtt": "^4.3.7",
