@@ -10,8 +10,9 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     env:
-      CREDENTIALS: ${{ secrets.CREDENTIALS }}
-      TOKEN: ${{ secrets.TOKEN }}
+      WS_PORT: ${{ secrets.WS_PORT }}
+      MQTT_HOST: ${{ secrets.MQTT_HOST }}
+      MQTT_PORT: ${{ secrets.MQTT_PORT }}
 
     strategy:
       matrix:

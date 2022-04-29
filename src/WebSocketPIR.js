@@ -51,17 +51,19 @@ class WebSocketPIR {
       process.exit(1);
     });
 
-    for (const topic of this.#topics) {
-      client.subscribe(topic, error => {
-        if (error) {
-          console.error(
-            `Error occurs while subscribing to topic: "${topic}". Reason: ${error.message}`
-          );
-          process.exit(1);
-        }
+    if (!(process.env.NODE_ENV === 'test')) {
+      for (const topic of this.#topics) {
+        client.subscribe(topic, error => {
+          if (error) {
+            console.error(
+              `Error occurs while subscribing to topic: "${topic}". Reason: ${error.message}`
+            );
+            process.exit(1);
+          }
 
-        console.log(`\tsubscribed to topic: "${topic}"`);
-      });
+          console.log(`\tsubscribed to topic: "${topic}"`);
+        });
+      }
     }
 
     return client;
