@@ -93,6 +93,10 @@ class WebSocketPIR {
 
     let mqttClient = this.#mqttConnectAndSubscribe(false);
 
+    if (process.env.NODE_ENV === 'test') {
+      process.exit(0);
+    }
+
     webSocketServer.on('connection', async (webSocket, request) => {
       if (!mqttClient.connected) {
         mqttClient = this.#mqttConnectAndSubscribe(true);
