@@ -18,18 +18,18 @@ if (process.env.NODE_ENV === 'test') {
     })
     .unknown()
     .required();
+} else {
+  defaultValidationSchema = joi
+    .object({
+      WS_PORT: joi.number().required().default(5236),
+      MQTT_HOST: joi.string().trim().required(),
+      MQTT_PORT: joi.number().required().default(1883),
+      MQTT_USERNAME: joi.string().trim().required(),
+      MQTT_PASSWORD: joi.string().trim().required()
+    })
+    .unknown()
+    .required();
 }
-
-defaultValidationSchema = joi
-  .object({
-    WS_PORT: joi.number().required().default(5236),
-    MQTT_HOST: joi.string().trim().required(),
-    MQTT_PORT: joi.number().required().default(1883),
-    MQTT_USERNAME: joi.string().trim().required(),
-    MQTT_PASSWORD: joi.string().trim().required()
-  })
-  .unknown()
-  .required();
 
 export class Config {
   static getConfig() {
