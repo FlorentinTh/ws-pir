@@ -35,11 +35,11 @@
     "eslint-plugin-prettier": "^4.0.0",
     "pre-commit": "^1.2.2",
     "prettier": "^2.6.2",
-    "standard-version": "^9.3.2"
+    "standard-version": "^9.5.0"
   },
   "dependencies": {
     "dayjs": "^1.11.2",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.1",
     "joi": "^17.6.0",
     "mqtt": "^4.3.7",
     "ws": "^8.6.0"
